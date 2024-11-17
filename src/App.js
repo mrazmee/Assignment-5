@@ -10,7 +10,7 @@ function App() {
   }, [])
 
   const getExchange = async () => {
-    const response = await axios.get('https://api.currencyfreaks.com/v2.0/rates/latest?apikey=aac091ea6b94457ca042369df40b88c8&symbols=CAD,EUR,IDR,JPY,CHF,GBP');
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}?apikey=${process.env.REACT_APP_API_KEY}&symbols=${process.env.REACT_APP_API_SYMBOLS}`);
     setExchange(response.data.rates)
   }
 
